@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "environment": {
+      "value": "dev"
+    },
+    "resourceGroupName": {
+      "value": "RG-AG-dev"
+    },
+    "tags": {
+      "value": {
+        "environment": "dev",
+        "costCenter": "CC-1001",
+        "dataClassification": "Internal",
+        "owner": "integration-team",
+        "managedBy": "bicep"
+      }
+    },
+    "vnetName": {
+      "value": "vnet-ag-eastus-shared"
+    },
+    "integrationSubnetName": {
+      "value": "snet-logicapp-integration"
+    },
+    "privateEndpointSubnetName": {
+      "value": "snet-private-endpoints"
+    },
+    "logAnalyticsWorkspaceName": {
+      "value": "law-ag-dev-eastus"
+    },
+    "keyVaultName": {
+      "value": "kvagdev001"
+    },
+    "logicApps": {
+      "value": [
+        {
+          "name": "la-std-dev-orders",
+          "appServicePlanName": "asp-la-dev-shared",
+          "storageAccountName": "stladevshared01",
+          "appInsightsName": "appi-la-dev-orders",
+          "skuName": "WS1",
+          "workerSize": 0,
+          "workerCount": 1,
+          "tags": {
+            "domain": "orders"
+          }
+        }
+      ]
+    }
+  }
+}

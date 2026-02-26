@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "environment": {
+      "value": "qa"
+    },
+    "resourceGroupName": {
+      "value": "RG-AG-qa"
+    },
+    "tags": {
+      "value": {
+        "environment": "qa",
+        "costCenter": "CC-1001",
+        "dataClassification": "Internal",
+        "owner": "integration-team",
+        "managedBy": "bicep"
+      }
+    },
+    "vnetName": {
+      "value": "vnet-ag-eastus-shared"
+    },
+    "integrationSubnetName": {
+      "value": "snet-logicapp-integration"
+    },
+    "privateEndpointSubnetName": {
+      "value": "snet-private-endpoints"
+    },
+    "logAnalyticsWorkspaceName": {
+      "value": "law-ag-qa-eastus"
+    },
+    "keyVaultName": {
+      "value": "kvagqa001"
+    },
+    "logicApps": {
+      "value": [
+        {
+          "name": "la-std-qa-orders",
+          "appServicePlanName": "asp-la-qa-shared",
+          "storageAccountName": "stlaqashared01",
+          "appInsightsName": "appi-la-qa-orders",
+          "skuName": "WS1",
+          "workerSize": 0,
+          "workerCount": 1
+        }
+      ]
+    }
+  }
+}
